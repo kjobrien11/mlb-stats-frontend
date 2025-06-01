@@ -43,7 +43,7 @@ export class LineScoreComponent {
   startTime(){
     setInterval(() => {
       this.refreshCurrentScore();
-    }, 1000); 
+    }, 5000); 
   }
 
 
