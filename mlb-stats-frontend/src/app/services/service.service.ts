@@ -14,12 +14,12 @@ export class ServiceService {
   constructor(private http: HttpClient) {}
 
   getLineScores(): Observable<string[]> {
-    console.log("inside service")
+    console.log("inside line scores")
     return this.http.get<string[]>(this.lineScoreUrl);
   }
 
   getLiveStats(): Observable<any> {
-    console.log("inside service")
+    console.log("inside live stats")
     return this.http.get<any>(this.liveStatsUrl);
   }
 }

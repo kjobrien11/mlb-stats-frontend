@@ -14,7 +14,7 @@ export class LineScoreComponent {
   current_score!: string 
   curren_score_counter: number = 0;
 
-  constructor(private scoreFetcher: ServiceService) {}
+  constructor(private lineScore: ServiceService) {}
 
   ngOnInit(): void {
     this.refreshLineScores();
@@ -24,7 +24,7 @@ export class LineScoreComponent {
 
   refreshLineScores(){
     console.log("getting new scores");
-    this.scoreFetcher.getLineScores().subscribe((data) => {
+    this.lineScore.getLineScores().subscribe((data) => {
       this.scores = data;
     });
   }
