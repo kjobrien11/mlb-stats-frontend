@@ -12,7 +12,7 @@ export class LineScoreComponent {
 
   scores: string[] = [];
   current_score!: string 
-  curren_score_counter = 0;
+  curren_score_counter: number = 0;
 
   constructor(private scoreFetcher: ServiceService) {}
 

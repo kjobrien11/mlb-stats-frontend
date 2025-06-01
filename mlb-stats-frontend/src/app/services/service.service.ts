@@ -7,13 +7,20 @@ import { Observable } from 'rxjs';
 })
 export class ServiceService {
 
-  private apiUrl = 'http://127.0.0.1:8000/line-scores';
+  private lineScoreUrl = 'http://127.0.0.1:8000/line-scores';
+  private liveStatsUrl = 'http://127.0.0.1:8000/game-information';
+
 
   constructor(private http: HttpClient) {}
 
-  getLineScores(): Observable<any> {
+  getLineScores(): Observable<string[]> {
     console.log("inside service")
-    return this.http.get<any>(this.apiUrl);
+    return this.http.get<string[]>(this.lineScoreUrl);
+  }
+
+  getLiveStats(): Observable<any> {
+    console.log("inside service")
+    return this.http.get<any>(this.liveStatsUrl);
   }
 }
 
