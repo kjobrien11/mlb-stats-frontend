@@ -5,11 +5,7 @@
     font-style: normal;
   }
 
-  body {
+* {
     font-family: 'Scoreboard', monospace;
+    background-color:black;
   }
-  
-  h1.score-title {
-    font-family: 'Scoreboard', sans-serif;
-  }
-  
