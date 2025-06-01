@@ -12,6 +12,7 @@ export class ServiceService {
   constructor(private http: HttpClient) {}
 
   getLineScores(): Observable<any> {
+    console.log("inside service")
     return this.http.get<any>(this.apiUrl);
   }
 }

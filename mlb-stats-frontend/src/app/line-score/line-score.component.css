@@ -1,0 +1,5 @@
+.linescore {
+    white-space: pre;
+    font-family: 'Scoreboard', monospace;
+    font-size: 2rem;
+}
