@@ -19,7 +19,6 @@ export class LineScoreComponent {
   ngOnInit(): void {
     this.refreshLineScores();
     this.current_score =  this.scores[0]
-    console.log(this.scores[0]);
   }
 
   refreshLineScores(){

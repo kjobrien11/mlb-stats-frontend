@@ -10,11 +10,13 @@ import { ViewChild } from '@angular/core';
   styleUrl: './mlb.component.css'
 })
 export class MlbComponent {
-
   @ViewChild(LineScoreComponent) linescore!: LineScoreComponent;
+  @ViewChild(LiveStatsComponent) teams!: LiveStatsComponent;
+
   startTime(){
     setInterval(() => {
       this.linescore.refreshCurrentScore();
+      this.teams.updateLiveStats();
       console.log("working");
     }, 1000); 
   }

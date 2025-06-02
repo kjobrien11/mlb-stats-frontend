@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { NgIf } from '@angular/common';
 
 @Component({
@@ -13,6 +13,14 @@ export class TeamComponent implements OnInit{
   @Input() score!:number;
   @Input() isHome!:boolean;
   logo!: string;
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['teamName']) {
+      const currentTeam = changes['teamName'].currentValue;
+      console.log('Changes in TeamComponent:', changes);
+      this.logo = this.generateImageName(currentTeam);
+    }
+  }
 
   ngOnInit(){
     this.logo = this.generateImageName(this.teamName)

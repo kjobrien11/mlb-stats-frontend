@@ -1,13 +1,13 @@
 <app-score></app-score>
 <div class = "container">
     <app-team 
-    [teamName] ="data[0]['away_team']"
-    [score]=" data[0]['away_score']"
+    [teamName] ="awayTeam"
+    [score]="awayScore"
     [isHome]="false"
 ></app-team>
 <app-team 
-    [teamName] ="data[0]['home_team']"
-    [score]=" data[0]['home_score']"
+    [teamName] ="homeTeam"
+    [score]="homeScore"
     [isHome]="true"
 ></app-team>
 
