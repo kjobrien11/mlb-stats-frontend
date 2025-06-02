@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
 import { ServiceService } from '../services/service.service';
+import { ScoreComponent } from '../score/score.component';
+import { TeamComponent } from '../team/team.component';
 
 @Component({
   selector: 'app-live-stats',
-  imports: [],
+  imports: [ScoreComponent, TeamComponent],
   templateUrl: './live-stats.component.html',
   styleUrl: './live-stats.component.css',
   standalone: true

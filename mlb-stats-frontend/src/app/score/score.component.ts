@@ -4,7 +4,8 @@ import { Component } from '@angular/core';
   selector: 'app-score',
   imports: [],
   templateUrl: './score.component.html',
-  styleUrl: './score.component.css'
+  styleUrl: './score.component.css',
+  standalone:true
 })
 export class ScoreComponent {
 
