@@ -1,15 +1,16 @@
-<app-score></app-score>
 <div class = "container">
     <app-team 
-    [teamName] ="data[0]['away_team']"
-    [score]=" data[0]['away_score']"
-    [isHome]="false"
-></app-team>
-<app-team 
-    [teamName] ="data[0]['home_team']"
-    [score]=" data[0]['home_score']"
-    [isHome]="true"
-></app-team>
+        [teamName] ="awayTeam"
+        [score]="awayScore"
+        [isHome]=false>
+    </app-team>
+    <app-score [outs] = "3" [inningStatus] = "'Top 4th'"></app-score>
+
+    <app-team 
+        [teamName] ="homeTeam"
+        [score]="homeScore"
+        [isHome]=true>
+    </app-team>
 
 </div>
 
