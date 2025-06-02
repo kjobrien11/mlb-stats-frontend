@@ -12,3 +12,9 @@
     align-items: center; 
     gap: 1rem;
 }
+
+.imgs{
+    width: 10vw;        /* 10% of the viewport width */
+    height: 10vw;       /* make it square */
+    object-fit: cover;
+}

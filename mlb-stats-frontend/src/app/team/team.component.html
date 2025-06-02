@@ -1,10 +1,13 @@
 <div class = "container">
     <div class = "horizontal">
-        <h1 *ngIf="isHome==true">{{score}}</h1>
-        <h1>LOGO HERE</h1>
-        <h1 *ngIf="isHome==false">{{score}}</h1>
+        <div *ngIf="isHome==false">
+            <img src="../../assets/teams/cardinals.jpg" alt="cards" class = "imgs">
+           
+        </div>
+        <h1 >{{score}}</h1>
+        <div *ngIf="isHome==true">
+            <img src="../../assets/teams/rangers.jpg" alt="rangers" class = "imgs">
+        </div>
     </div>
-    
-    <p>{{teamName}}</p>
 </div>
 

@@ -1,9 +1,4 @@
 .container{
     display: flex;
-    justify-content: center;
-}
-.linescore {
-    white-space: pre;
-    font-family: 'Scoreboard', monospace;
-    font-size: 4rem;
+    justify-content: space-around;
 }
