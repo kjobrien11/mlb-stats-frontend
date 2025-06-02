@@ -11,8 +11,8 @@ import { LiveStatsComponent } from '../live-stats/live-stats.component';
 })
 export class ScoreComponent implements OnInit{
 
-  @Input() outs!: number;
-  @Input() inningStatus!: string;
+  @Input() outs: number = 0;
+  @Input() inningStatus: string = "";
   @Input() base_occupancy: any;
 
   ngOnInit(): void {

@@ -18,6 +18,8 @@ export class LiveStatsComponent {
   awayTeam!: string;
   homeScore: number = 0;
   awayScore: number = 0;
+  outs:number = 0;
+  inningStatus!:string;
 
   constructor(private liveStats: ServiceService) {}
 
@@ -31,13 +33,11 @@ export class LiveStatsComponent {
       this.data = data;
       this.homeTeam = this.data[0]['home_team'];
       this.awayTeam = this.data[0]['away_team'];
-      if (this.data[0]?.home_score != null) {
-        this.homeScore = this.data[0].home_score;
-      }
+      this.homeScore = this.data[0]['home_score'];
+      this.awayScore = this.data[0]['away_score'];
+      this.outs = this.data[0]['outs'];
+      this.inningStatus = this.data[0]['inning_status'];
       
-      if (this.data[0]?.away_score != null) {
-        this.awayScore = this.data[0].away_score;
-      }
       
     });
     console.log("HI?")
@@ -54,6 +54,10 @@ export class LiveStatsComponent {
     }
     this.homeTeam = this.data[this.current_game_counter]['home_team'];
     this.awayTeam = this.data[this.current_game_counter]['away_team'];
+    this.homeScore = this.data[this.current_game_counter]['home_score'];
+    this.awayScore = this.data[this.current_game_counter]['away_score'];
+    this.outs = this.data[this.current_game_counter]['outs'];
+    this.inningStatus = this.data[this.current_game_counter]['inning_status'];
     console.log(this.homeTeam);
   }
 
