@@ -31,8 +31,14 @@ export class LiveStatsComponent {
       this.data = data;
       this.homeTeam = this.data[0]['home_team'];
       this.awayTeam = this.data[0]['away_team'];
-      // this.homeScore = this.data[1]['home_score']
-      // this.awayScore = this.data[1]['away_score']
+      if (this.data[0]?.home_score != null) {
+        this.homeScore = this.data[0].home_score;
+      }
+      
+      if (this.data[0]?.away_score != null) {
+        this.awayScore = this.data[0].away_score;
+      }
+      
     });
     console.log("HI?")
     console.log(this.data);

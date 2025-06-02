@@ -18,14 +18,12 @@ export class TeamComponent implements OnInit{
     if (changes['teamName']) {
       const currentTeam = changes['teamName'].currentValue;
       this.logo = this.generateImageName(currentTeam);
-      console.log(currentTeam);
     }
    
   }
 
   ngOnInit(){
     this.logo = this.generateImageName(this.teamName)
-    console.log(this.logo)
   }
 
   private generateImageName(team: string): string {
