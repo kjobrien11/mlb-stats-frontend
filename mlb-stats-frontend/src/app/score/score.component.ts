@@ -1,6 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { LineScoreComponent } from '../line-score/line-score.component';
-import { LiveStatsComponent } from '../live-stats/live-stats.component';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-score',
@@ -9,14 +8,36 @@ import { LiveStatsComponent } from '../live-stats/live-stats.component';
   styleUrl: './score.component.css',
   standalone:true
 })
-export class ScoreComponent implements OnInit{
+export class ScoreComponent implements OnInit, OnChanges{
 
   @Input() outs: number = 0;
   @Input() inningStatus: string = "";
-  @Input() base_occupancy: any;
+  @Input() baseOccupancy!: { '1B': boolean; '2B': boolean; '3B': boolean };
+  baseStatus!: string;
 
   ngOnInit(): void {
     console.log(this.outs);
     console.log(this.inningStatus);
+    console.log(this.baseOccupancy);
+    this.baseStatus = this.parseBaseOccupancy(this.baseOccupancy)
+    console.log(this.baseStatus);
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    // Update base_status when offense input changes
+    console.log(changes)
+    if (changes['baseOccupancy']) {
+      this.baseStatus = this.parseBaseOccupancy(changes['baseOccupancy']['currentValue']);
+    }
+  }
+
+  parseBaseOccupancy(bases: any){
+    const first = bases["1B"] ? "1" : "0";
+    const second = bases["2B"] ? "1" : "0";
+    const third = bases["3B"] ? "1" : "0";
+  
+    const fileName = `${first}${second}${third}.png`;
+    console.log("Filename:", fileName);
+    return fileName;
   }
 }

@@ -4,8 +4,12 @@
         [score]="awayScore"
         [isHome]=false>
     </app-team>
-    <app-score [outs] = "outs" [inningStatus] = "inningStatus"></app-score>
-
+    <app-score 
+        *ngIf="baseOccupancy"
+        [outs] = "outs" 
+        [inningStatus] = "inningStatus" 
+        [baseOccupancy] = "baseOccupancy">
+</app-score>
     <app-team 
         [teamName] ="homeTeam"
         [score]="homeScore"

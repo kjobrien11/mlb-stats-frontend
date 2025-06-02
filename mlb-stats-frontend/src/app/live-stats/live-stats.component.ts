@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { ServiceService } from '../services/service.service';
 import { ScoreComponent } from '../score/score.component';
 import { TeamComponent } from '../team/team.component';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-live-stats',
-  imports: [ScoreComponent, TeamComponent],
+  imports: [ScoreComponent, TeamComponent, NgIf],
   templateUrl: './live-stats.component.html',
   styleUrl: './live-stats.component.css',
   standalone: true
@@ -20,6 +21,7 @@ export class LiveStatsComponent {
   awayScore: number = 0;
   outs:number = 0;
   inningStatus!:string;
+  baseOccupancy!: { '1B': boolean; '2B': boolean; '3B': boolean };
 
   constructor(private liveStats: ServiceService) {}
 
@@ -37,6 +39,7 @@ export class LiveStatsComponent {
       this.awayScore = this.data[0]['away_score'];
       this.outs = this.data[0]['outs'];
       this.inningStatus = this.data[0]['inning_status'];
+      this.baseOccupancy = this.data[0]['base_occupancy'];
       
       
     });
@@ -44,6 +47,8 @@ export class LiveStatsComponent {
     console.log(this.data);
     console.log("HELLO?")
   }
+
+
 
   updateLiveStats(){
     if(this.current_game_counter +1 == this.data.length){
@@ -58,7 +63,7 @@ export class LiveStatsComponent {
     this.awayScore = this.data[this.current_game_counter]['away_score'];
     this.outs = this.data[this.current_game_counter]['outs'];
     this.inningStatus = this.data[this.current_game_counter]['inning_status'];
-    console.log(this.homeTeam);
+    this.baseOccupancy = this.data[this.current_game_counter]['base_occupancy'];
   }
 
 }
