@@ -4,8 +4,13 @@
     align-items: center;
 }
 
-.imgs{
+.base-imgs{
     width: 10vw;        /* 10% of the viewport width */
     height: 10vw;       /* make it square */
     object-fit: cover;
+}
+
+.out-imgs{     /* make it square */
+    object-fit: cover;
+    height: 4vh;
 }
