@@ -22,6 +22,8 @@ export class LiveStatsComponent {
   outs:number = 0;
   inningStatus!:string;
   baseOccupancy!: { '1B': boolean; '2B': boolean; '3B': boolean };
+  isBattingHome:boolean = false;
+  isBattingAway:boolean = false;
 
   constructor(private liveStats: ServiceService) {}
 
@@ -40,6 +42,16 @@ export class LiveStatsComponent {
       this.outs = this.data[0]['outs'];
       this.inningStatus = this.data[0]['inning_status'];
       this.baseOccupancy = this.data[0]['base_occupancy'];
+
+      if(this.inningStatus.substring(0,1) == "T" || this.inningStatus.substring(0,1) == "t"){
+        this.isBattingAway = true;
+        this.isBattingHome = false;
+      }else{
+        console.log("look")
+        console.log(this.inningStatus.substring(0,1));
+        this.isBattingHome = true;
+        this.isBattingAway = false;
+      }
       
       
     });
@@ -64,6 +76,19 @@ export class LiveStatsComponent {
     this.outs = this.data[this.current_game_counter]['outs'];
     this.inningStatus = this.data[this.current_game_counter]['inning_status'];
     this.baseOccupancy = this.data[this.current_game_counter]['base_occupancy'];
+
+
+    if(this.inningStatus.substring(0,1) == "T" || this.inningStatus.substring(0,1) == "t"){
+      console.log("look T")
+      console.log(this.inningStatus.substring(0,1));
+      this.isBattingAway = true;
+      this.isBattingHome = false;
+    }else{
+      console.log("look B")
+      console.log(this.inningStatus.substring(0,1));
+      this.isBattingHome = true;
+      this.isBattingAway = false;
+    }
   }
 
 }
