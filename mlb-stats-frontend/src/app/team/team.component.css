@@ -14,15 +14,14 @@
 }
 
 .imgs{
-    width: 20vw;        /* 10% of the viewport width */
-    height: 20vw;       /* make it square */
+    width: 20vw;
+    height: 20vw;
     object-fit: cover;
-
 }
 
 .imgs-batting{
-    width: 20vw;        /* 10% of the viewport width */
-    height: 20vw;       /* make it square */
+    width: 20vw;
+    height: 20vw;
     object-fit: cover;
     border: solid;
     padding: 1rem;

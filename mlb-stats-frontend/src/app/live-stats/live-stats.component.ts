@@ -83,10 +83,13 @@ export class LiveStatsComponent {
       console.log(this.inningStatus.substring(0,1));
       this.isBattingAway = true;
       this.isBattingHome = false;
-    }else{
+    }else if (this.inningStatus.substring(0,1) == "B" || this.inningStatus.substring(0,1) == "b"){
       console.log("look B")
       console.log(this.inningStatus.substring(0,1));
       this.isBattingHome = true;
+      this.isBattingAway = false;
+    }else{
+      this.isBattingHome = false;
       this.isBattingAway = false;
     }
   }

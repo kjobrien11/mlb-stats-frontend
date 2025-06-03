@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, OnInit, OnChanges, SimpleChanges, OnDestroy } from '@angular/core';
 import { CommonModule, NgIf } from '@angular/common';
 
 @Component({
@@ -8,12 +8,14 @@ import { CommonModule, NgIf } from '@angular/common';
   styleUrl: './team.component.css',
   standalone: true
 })
-export class TeamComponent implements OnInit{
+export class TeamComponent implements OnInit, OnDestroy{
   @Input() teamName!: string;
   @Input() score!:number;
   @Input() isHome!:boolean;
   @Input() isBatting!: boolean;
   logo!: string;
+  //'imgs-batting' : 'imgs'"
+  classStyling:string = "imgs";
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['teamName']) {
@@ -23,6 +25,13 @@ export class TeamComponent implements OnInit{
     if (changes['isBatting']) {
       console.log("LOOOOOOOOOKKKKK")
       this.isBatting = changes['isBatting'].currentValue;
+      if(this.isBatting == true){
+        console.log(this.isBatting)
+        this.classStyling = "imgs-batting"
+        
+      }else{
+        this.classStyling = "imgs";
+      }
     }
   }
 
@@ -31,6 +40,13 @@ export class TeamComponent implements OnInit{
     console.log("me")
     console.log(this.isBatting)
   }
+
+  ngOnDestroy(): void {
+    console.log("SEeE YEAHHH")
+  }
+
+
+
 
   private generateImageName(team: string): string {
     const mapped = this.teamNameMap[team.trim()];

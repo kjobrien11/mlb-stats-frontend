@@ -1,11 +1,11 @@
 <div class = "container">
     <div class = "horizontal">
-        <div *ngIf="isHome==false" [class]="isBatting ? 'imgs-batting' : 'imgs'">
+        <div *ngIf="isHome==false" [class]="classStyling">
             <img [src]="'../../assets/teams/' + logo" alt="left" class = "imgs">
            
         </div>
         <h1 >{{score}}</h1>
-        <div *ngIf="isHome==true" [class]="isBatting ? 'imgs-batting' : 'imgs'">
+        <div *ngIf="isHome==true" [class]="classStyling">
             <img [src]="'../../assets/teams/' + logo" alt="right" class = "imgs">
         </div>
     </div>
