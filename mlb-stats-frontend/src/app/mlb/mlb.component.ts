@@ -17,6 +17,6 @@ export class MlbComponent {
     setInterval(() => {
       this.linescore.refreshCurrentScore();
       this.teams.updateLiveStats();
-    }, 1000); 
+    }, 5000); 
   }
 }

@@ -1,8 +1,10 @@
 <div class = "container">
     <app-team 
+       
         [teamName] ="awayTeam"
         [score]="awayScore"
-        [isHome]=false>
+        [isHome]=false
+        [isBatting]=false>
     </app-team>
     <app-score 
         *ngIf="baseOccupancy"
@@ -13,7 +15,8 @@
     <app-team 
         [teamName] ="homeTeam"
         [score]="homeScore"
-        [isHome]=true>
+        [isHome]=true
+        [isBatting]=true>
     </app-team>
 
 </div>

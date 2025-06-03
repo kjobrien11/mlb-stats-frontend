@@ -1,9 +1,9 @@
 import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
-import { NgIf } from '@angular/common';
+import { CommonModule, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-team',
-  imports: [NgIf],
+  imports: [NgIf, CommonModule],
   templateUrl: './team.component.html',
   styleUrl: './team.component.css',
   standalone: true
@@ -12,6 +12,7 @@ export class TeamComponent implements OnInit{
   @Input() teamName!: string;
   @Input() score!:number;
   @Input() isHome!:boolean;
+  @Input() isBatting!: boolean;
   logo!: string;
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -19,7 +20,6 @@ export class TeamComponent implements OnInit{
       const currentTeam = changes['teamName'].currentValue;
       this.logo = this.generateImageName(currentTeam);
     }
-   
   }
 
   ngOnInit(){
