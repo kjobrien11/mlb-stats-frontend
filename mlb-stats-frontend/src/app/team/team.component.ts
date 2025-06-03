@@ -13,9 +13,13 @@ export class TeamComponent implements OnInit, OnDestroy{
   @Input() score!:number;
   @Input() isHome!:boolean;
   @Input() isBatting!: boolean;
+  @Input() isFinal!:boolean;
+  @Input() scoreDifference!: number;
   logo!: string;
   //'imgs-batting' : 'imgs'"
+  //derived
   classStyling:string = "imgs";
+  finalStyling:string = "imgs";
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['teamName']) {
@@ -32,6 +36,20 @@ export class TeamComponent implements OnInit, OnDestroy{
       }else{
         this.classStyling = "imgs";
       }
+    }
+
+    if (changes['isFinal']) {
+      this.isFinal = changes['isFinal'].currentValue;
+      if(this.isFinal && this.scoreDifference > 0 && this.isHome){
+        this.finalStyling = "imgs-final"
+        this.classStyling = "imgs"; //might need to check
+      }else if(this.isFinal && this.scoreDifference < 0 && !this.isHome){
+        this.finalStyling = "imgs-final"
+        this.classStyling = "imgs"; //might need to check
+      }else{
+        this.finalStyling = "imgs";
+      }
+
     }
   }
 
@@ -64,7 +82,7 @@ export class TeamComponent implements OnInit, OnDestroy{
     'Cleveland Guardians': 'guardians.png',
     'Colorado Rockies': 'rockies.png',
     'Detroit Tigers': 'tigers.png',
-    'Houston Astros': 'astros.png',
+    'Houston Astros': 'astros.svg',
     'Kansas City Royals': 'royals.png',
     'Los Angeles Angels': 'angels.png',
     'Los Angeles Dodgers': 'dodgers.png',
@@ -75,7 +93,7 @@ export class TeamComponent implements OnInit, OnDestroy{
     'New York Yankees': 'yankees.png',
     'Athletics': 'athletics.png',
     'Philadelphia Phillies': 'phillies.png',
-    'Pittsburgh Pirates': 'pirates.png',
+    'Pittsburgh Pirates': 'pirates.svg',
     'San Diego Padres': 'padres.png',
     'San Francisco Giants': 'giants.png',
     'Seattle Mariners': 'mariners.png',

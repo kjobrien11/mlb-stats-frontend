@@ -4,7 +4,9 @@
         [teamName] ="awayTeam"
         [score]="awayScore"
         [isHome]=false
-        [isBatting]="isBattingAway">
+        [isBatting]="isBattingAway"
+        [isFinal]="isFinal"
+        [scoreDifference]="homeScore - awayScore">
     </app-team>
     <app-score 
         *ngIf="baseOccupancy"
@@ -16,7 +18,9 @@
         [teamName] ="homeTeam"
         [score]="homeScore"
         [isHome]=true
-        [isBatting]="isBattingHome">
+        [isBatting]="isBattingHome"
+        [isFinal]="isFinal"
+        [scoreDifference]="homeScore - awayScore">
     </app-team>
 
 </div>

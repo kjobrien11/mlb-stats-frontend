@@ -23,11 +23,19 @@
     width: 20vw;
     height: 20vw;
     object-fit: cover;
+    padding: 1rem;
+    border-bottom: solid white; /* updated line */
+}
+
+.imgs-final{
+    width: 20vw;
+    height: 20vw;
+    object-fit: cover;
     border: solid;
     padding: 1rem;
     border-color: orange;
     border-radius: 5%;
-
+    background-color: orange;
 }
 
 h1{
