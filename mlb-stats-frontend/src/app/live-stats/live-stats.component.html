@@ -1,15 +1,28 @@
 <div class = "container">
     <app-team 
+       
         [teamName] ="awayTeam"
         [score]="awayScore"
-        [isHome]=false>
+        [isHome]=false
+        [isBatting]="isBattingAway"
+        [isFinal]="isFinal"
+        [homeWin]="homeWin">
     </app-team>
-    <app-score [outs] = "3" [inningStatus] = "'Top 4th'"></app-score>
-
+    <app-score 
+        *ngIf="baseOccupancy"
+        [outs] = "outs" 
+        [inningStatus] = "inningStatus" 
+        [baseOccupancy] = "baseOccupancy"
+        [isFinal]="isFinal"
+        [isPreview]="isPreview">
+    </app-score>
     <app-team 
         [teamName] ="homeTeam"
         [score]="homeScore"
-        [isHome]=true>
+        [isHome]=true
+        [isBatting]="isBattingHome"
+        [isFinal]="isFinal"
+        [homeWin]="homeWin">
     </app-team>
 
 </div>

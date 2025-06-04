@@ -1,12 +1,12 @@
 <div class = "container">
     <div class = "horizontal">
-        <div *ngIf="isHome==false">
-            <img [src]="'../../assets/teams/' + logo" alt="left" class = "imgs">
+        <div *ngIf="isHome==false" [class]="classStyling">
+            <img [src]="'../../assets/teams/' + logo" alt="left" [class]="finalStyling">
            
         </div>
         <h1 >{{score}}</h1>
-        <div *ngIf="isHome==true">
-            <img [src]="'../../assets/teams/' + logo" alt="right" class = "imgs">
+        <div *ngIf="isHome==true" [class]="classStyling">
+            <img [src]="'../../assets/teams/' + logo" alt="right" [class]="finalStyling">
         </div>
     </div>
 </div>

@@ -1,30 +1,73 @@
-import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
-import { NgIf } from '@angular/common';
+import { Component, Input, OnInit, OnChanges, SimpleChanges, OnDestroy } from '@angular/core';
+import { CommonModule, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-team',
-  imports: [NgIf],
+  imports: [NgIf, CommonModule],
   templateUrl: './team.component.html',
   styleUrl: './team.component.css',
   standalone: true
 })
-export class TeamComponent implements OnInit{
+export class TeamComponent implements OnInit, OnDestroy{
   @Input() teamName!: string;
   @Input() score!:number;
   @Input() isHome!:boolean;
+  @Input() isBatting!: boolean;
+  @Input() isFinal!:boolean;
+  @Input() homeWin!: boolean;
   logo!: string;
+  //'imgs-batting' : 'imgs'"
+  //derived
+  classStyling:string = "imgs";
+  finalStyling:string = "imgs";
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['teamName']) {
       const currentTeam = changes['teamName'].currentValue;
       this.logo = this.generateImageName(currentTeam);
     }
-   
+    if (changes['isBatting']) {
+      console.log("LOOOOOOOOOKKKKK")
+      this.isBatting = changes['isBatting'].currentValue;
+      if(this.isBatting == true){
+        console.log(this.isBatting)
+        this.classStyling = "imgs-batting"
+        
+      }else{
+        this.classStyling = "imgs";
+      }
+    }
+
+    // this.finalStyling = "imgs"
+    if (changes['isFinal']) {
+      this.isFinal = changes['isFinal'].currentValue;
+    }
+
+    if(this.isFinal && this.homeWin && this.isHome){
+      this.finalStyling = "imgs-final"
+      this.classStyling = "imgs"; //might need to check
+    }else if(this.isFinal && !this.homeWin && !this.isHome){
+      this.finalStyling = "imgs-final"
+      this.classStyling = "imgs"; //might need to check
+    }else{
+      this.finalStyling = "imgs";
+    }
+
+  
   }
 
   ngOnInit(){
     this.logo = this.generateImageName(this.teamName)
+    console.log("me")
+    console.log(this.isBatting)
   }
+
+  ngOnDestroy(): void {
+    console.log("SEeE YEAHHH")
+  }
+
+
+
 
   private generateImageName(team: string): string {
     const mapped = this.teamNameMap[team.trim()];
