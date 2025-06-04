@@ -24,6 +24,7 @@ export class LiveStatsComponent {
   isFinal!:boolean;
   baseOccupancy!: { '1B': boolean; '2B': boolean; '3B': boolean };
   homeWin!:boolean;
+  isPreview!:boolean;
 
   //derived
   isBattingHome:boolean = false;
@@ -47,6 +48,7 @@ export class LiveStatsComponent {
       this.inningStatus = this.data[0]['inning_status'];
       this.baseOccupancy = this.data[0]['base_occupancy'];
       this.isFinal = this.data[0]['is_final'];
+      this.isPreview = this.data[0]['is_preview'];
 
       if(this.inningStatus.substring(0,1) == "T" || this.inningStatus.substring(0,1) == "t"){
         this.isBattingAway = true;
@@ -85,6 +87,7 @@ export class LiveStatsComponent {
     this.inningStatus = this.data[this.current_game_counter]['inning_status'];
     this.baseOccupancy = this.data[this.current_game_counter]['base_occupancy'];
     this.isFinal = this.data[this.current_game_counter]['is_final'];
+    this.isPreview = this.data[this.current_game_counter]['is_preview'];
 
 
     if(this.inningStatus.substring(0,1) == "T" || this.inningStatus.substring(0,1) == "t"){

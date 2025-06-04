@@ -14,6 +14,7 @@ export class ScoreComponent implements OnInit, OnChanges{
   @Input() inningStatus: string = "";
   @Input() baseOccupancy!: { '1B': boolean; '2B': boolean; '3B': boolean };
   @Input() isFinal!:boolean;
+  @Input() isPreview!:boolean;
   baseStatus!: string;
 
   ngOnInit(): void {
@@ -35,8 +36,14 @@ export class ScoreComponent implements OnInit, OnChanges{
       if(this.isFinal){
         this.inningStatus = "final";
       }
-      
     }
+
+    if (changes['isPreview']) {
+      if(this.isPreview){
+        this.inningStatus = "Preview"
+      }
+    }
+    
   }
 
   parseBaseOccupancy(bases: any){
