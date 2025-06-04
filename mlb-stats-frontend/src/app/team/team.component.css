@@ -23,7 +23,7 @@
     width: 20vw;
     height: 20vw;
     object-fit: cover;
-    padding: 1rem;
+    /* padding: 1rem; */
     /*border-bottom: solid white; /* updated line */
 }
 

@@ -14,7 +14,7 @@ export class TeamComponent implements OnInit, OnDestroy{
   @Input() isHome!:boolean;
   @Input() isBatting!: boolean;
   @Input() isFinal!:boolean;
-  @Input() scoreDifference!: number;
+  @Input() homeWin!: boolean;
   logo!: string;
   //'imgs-batting' : 'imgs'"
   //derived
@@ -38,19 +38,22 @@ export class TeamComponent implements OnInit, OnDestroy{
       }
     }
 
+    // this.finalStyling = "imgs"
     if (changes['isFinal']) {
       this.isFinal = changes['isFinal'].currentValue;
-      if(this.isFinal && this.scoreDifference > 0 && this.isHome){
-        this.finalStyling = "imgs-final"
-        this.classStyling = "imgs"; //might need to check
-      }else if(this.isFinal && this.scoreDifference < 0 && !this.isHome){
-        this.finalStyling = "imgs-final"
-        this.classStyling = "imgs"; //might need to check
-      }else{
-        this.finalStyling = "imgs";
-      }
-
     }
+
+    if(this.isFinal && this.homeWin && this.isHome){
+      this.finalStyling = "imgs-final"
+      this.classStyling = "imgs"; //might need to check
+    }else if(this.isFinal && !this.homeWin && !this.isHome){
+      this.finalStyling = "imgs-final"
+      this.classStyling = "imgs"; //might need to check
+    }else{
+      this.finalStyling = "imgs";
+    }
+
+  
   }
 
   ngOnInit(){

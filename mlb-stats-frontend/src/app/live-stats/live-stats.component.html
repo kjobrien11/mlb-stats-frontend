@@ -6,13 +6,14 @@
         [isHome]=false
         [isBatting]="isBattingAway"
         [isFinal]="isFinal"
-        [scoreDifference]="homeScore - awayScore">
+        [homeWin]="homeWin">
     </app-team>
     <app-score 
         *ngIf="baseOccupancy"
         [outs] = "outs" 
         [inningStatus] = "inningStatus" 
-        [baseOccupancy] = "baseOccupancy">
+        [baseOccupancy] = "baseOccupancy"
+        [isFinal]="isFinal">
     </app-score>
     <app-team 
         [teamName] ="homeTeam"
@@ -20,7 +21,7 @@
         [isHome]=true
         [isBatting]="isBattingHome"
         [isFinal]="isFinal"
-        [scoreDifference]="homeScore - awayScore">
+        [homeWin]="homeWin">
     </app-team>
 
 </div>

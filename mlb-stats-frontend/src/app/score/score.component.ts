@@ -13,6 +13,7 @@ export class ScoreComponent implements OnInit, OnChanges{
   @Input() outs: number = 0;
   @Input() inningStatus: string = "";
   @Input() baseOccupancy!: { '1B': boolean; '2B': boolean; '3B': boolean };
+  @Input() isFinal!:boolean;
   baseStatus!: string;
 
   ngOnInit(): void {
@@ -28,6 +29,13 @@ export class ScoreComponent implements OnInit, OnChanges{
     console.log(changes)
     if (changes['baseOccupancy']) {
       this.baseStatus = this.parseBaseOccupancy(changes['baseOccupancy']['currentValue']);
+    }
+
+    if (changes['isFinal']) {
+      if(this.isFinal){
+        this.inningStatus = "final";
+      }
+      
     }
   }
 

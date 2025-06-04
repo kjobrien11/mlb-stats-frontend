@@ -23,6 +23,7 @@ export class LiveStatsComponent {
   inningStatus!:string;
   isFinal!:boolean;
   baseOccupancy!: { '1B': boolean; '2B': boolean; '3B': boolean };
+  homeWin!:boolean;
 
   //derived
   isBattingHome:boolean = false;
@@ -59,7 +60,7 @@ export class LiveStatsComponent {
         this.isBattingHome = false;
         this.isBattingAway = false;
       }
-      
+      this.homeWin = this.homeScore > this.awayScore;
       
     });
     console.log("HI?")
@@ -100,6 +101,8 @@ export class LiveStatsComponent {
       this.isBattingHome = false;
       this.isBattingAway = false;
     }
+
+    this.homeWin = this.homeScore > this.awayScore;
   }
 
 }
